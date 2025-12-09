@@ -1,0 +1,141 @@
+// Component Styles
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+// Right-hand feature card (list style)
+.rhc {
+  background: #ffffff;
+  color: var(--text);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--mint-700);
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: .85;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: grid;
+    gap: 18px;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 800;
+  }
+
+  .meta {
+    font-size: 12px;
+    letter-spacing: .02em;
+    opacity: .9;
+    margin-top: 4px;
+  }
+
+  .rule {
+    height: 1px;
+    background: rgba(0,0,0,.18);
+    grid-column: 1 / -1;
+    margin-top: 8px;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-primary-strong);
+  }
+}
+
+.strip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+// Decorative geometric motif
+.motif-inline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  max-width: 36rem;
+  margin: 12px 0 16px 0;
+}
+
+.shape {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+
+  div {
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+  }
+}
+
+.mint { background: var(--mint-500)!important; }
+.mint-light { background: var(--mint-300)!important; }
+.cobalt { background: var(--color-primary)!important; }
+
+.circle div { border-radius: 50%; }
+.half-left div { border-radius: 50% 0 0 50%; }
+.half-right div { border-radius: 0 50% 50% 0; }
+.half-top div { border-radius: 50% 50% 0 0; }
+.half-bottom div { border-radius: 0 0 50% 50%; }

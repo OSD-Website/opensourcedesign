@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<section>
+  <h1>{{ page.title | default: "Where Design Meets Open Source" }}</h1>
+  <p class="subhead">{{ page.description | default: "Discover how design thrives in open source. Share your expertise and participate in shaping the community." }}</p>
+  {% include hero-motif.html %}
+</section>
+
+{{ content }}

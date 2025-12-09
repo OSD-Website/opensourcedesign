@@ -1,0 +1,30 @@
+// Color Variables
+:root {
+  --brand-700:#1e2a47;   /* navy blue */
+  --brand-800:#111827;   /* deeper navy */
+  --brand-300:#7ea1cc;   /* light accent blue */
+
+  --mint-500:#5ab5a6;   /* darkened for better contrast (was #6fc7b8) */
+  --mint-300:#a8e0d7;
+  --mint-700:#4b9b8e;
+
+  --neutral-50:#fdfaf7;
+  --neutral-200:#f0eae3;
+  --neutral-600:#5a5450;   /* darkened for WCAG AA compliance (was #8c837a) */
+  --neutral-900:#322d28;
+
+  --color-primary: var(--brand-700);
+  --color-primary-strong: var(--brand-800);
+  --color-primary-weak: var(--brand-300);
+
+  --text: var(--neutral-900);
+  --text-muted: var(--neutral-600);
+  --bg: #ffffff;
+  --bg-alt: var(--neutral-50);
+  --border: var(--neutral-200);
+  --focus: #ffb703;
+
+  --radius: 16px;
+  --shadow: 0 4px 20px rgba(0,0,0,.06);
+  --gutter: 24px;
+}

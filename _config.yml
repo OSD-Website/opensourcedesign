@@ -1,0 +1,29 @@
+# Site settings
+title: Open Source Design
+description: Where Design Meets Open Source
+url: "" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - initial.html
+  - osd_homepage_design copy.html
+
+# Collections (optional - for future expansion)
+# collections:
+#   resources:
+#     output: true
+#     permalink: /resources/:name/
