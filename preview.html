@@ -141,63 +141,56 @@
                 color: var(--color-primary);
             }
 
-            /* NEW HERO GRAPHIC MOTIF */
+            /* SMOOTH WAVE GRAPHIC */
             .motif-inline {
-                display: grid;
-                grid-template-columns: repeat(8, 1fr);
-                grid-template-rows: repeat(4, 60px);
-                gap: 12px;
-                max-width: 48rem;
-                margin: 32px 0;
-                padding: 32px;
-                background: var(--bg-alt);
-                border-radius: var(--radius);
-            }
-
-            .block {
                 position: relative;
+                width: 100%;
+                max-width: 65ch;
+                height: 288px;
+                margin: 32px 0;
                 overflow: hidden;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-radius: 8px;
+                border-radius: var(--radius);
+                background: linear-gradient(
+                    180deg,
+                    var(--mint-300) 0%,
+                    var(--mint-500) 100%
+                );
             }
 
-            .block:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-            }
-
-            .navy {
-                background: var(--brand-700);
-            }
-            .navy-deep {
-                background: var(--brand-800);
-            }
-            .black {
-                background: var(--neutral-900);
-            }
-            .slate {
-                background: var(--neutral-600);
-            }
-
-            .span-2 {
-                grid-column: span 2;
-            }
-            .span-3 {
-                grid-column: span 3;
-            }
-            .tall {
-                grid-row: span 2;
-            }
-
-            .block::after {
-                content: "";
+            .motif-inline svg {
                 position: absolute;
-                width: 2px;
-                height: 120%;
-                background: rgba(255, 255, 255, 0.1);
-                top: -10%;
-                right: 30%;
-                transform: rotate(25deg);
+                width: 100%;
+                height: 100%;
+            }
+
+            .wave {
+                animation: wave 8s ease-in-out infinite;
+                transform-origin: center;
+            }
+
+            .wave-1 {
+                opacity: 0.7;
+                animation-delay: 0s;
+            }
+
+            .wave-2 {
+                opacity: 0.5;
+                animation-delay: -2s;
+            }
+
+            .wave-3 {
+                opacity: 0.3;
+                animation-delay: -4s;
+            }
+
+            @keyframes wave {
+                0%,
+                100% {
+                    transform: translateX(0) translateY(0);
+                }
+                50% {
+                    transform: translateX(-25px) translateY(-10px);
+                }
             }
 
             @media (max-width: 900px) {
@@ -209,10 +202,6 @@
                     max-height: none;
                     overflow: visible;
                     padding-right: 0;
-                }
-                .motif-inline {
-                    grid-template-columns: repeat(4, 1fr);
-                    grid-template-rows: repeat(6, 50px);
                 }
             }
         </style>
@@ -248,25 +237,25 @@
                         expertise and participate in shaping the community.
                     </p>
 
-                    <!-- NEW HERO GRAPHIC MOTIF -->
+                    <!-- SMOOTH WAVE GRAPHIC -->
                     <div class="motif-inline">
-                        <div class="block navy-deep span-3 tall"></div>
-                        <div class="block black"></div>
-                        <div class="block slate span-2"></div>
-                        <div class="block navy span-2"></div>
-                        <div class="block navy tall"></div>
-                        <div class="block slate"></div>
-                        <div class="block black span-2"></div>
-                        <div class="block navy-deep span-2"></div>
-                        <div class="block navy"></div>
-                        <div class="block black tall"></div>
-                        <div class="block slate span-2"></div>
-                        <div class="block navy-deep"></div>
-                        <div class="block navy span-3"></div>
-                        <div class="block slate"></div>
-                        <div class="block black span-2 tall"></div>
-                        <div class="block navy-deep"></div>
-                        <div class="block slate span-2"></div>
+                        <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
+                            <path
+                                class="wave wave-1"
+                                d="M0,160 C300,100 400,180 600,140 C800,100 900,160 1200,120 L1200,240 L0,240 Z"
+                                fill="#1e2a47"
+                            />
+                            <path
+                                class="wave wave-2"
+                                d="M0,140 C300,180 500,100 700,140 C900,180 1000,120 1200,160 L1200,240 L0,240 Z"
+                                fill="#111827"
+                            />
+                            <path
+                                class="wave wave-3"
+                                d="M0,180 C250,120 450,200 650,160 C850,120 1050,180 1200,140 L1200,240 L0,240 Z"
+                                fill="#1e2a47"
+                            />
+                        </svg>
                     </div>
                 </section>
 

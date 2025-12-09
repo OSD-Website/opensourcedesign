@@ -108,65 +108,52 @@
     box-shadow: var(--shadow);
 }
 
-// Hero graphic motif
+// Hero wave graphic
 .motif-inline {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, 60px);
-    gap: 12px;
-    max-width: 48rem;
-    margin: 32px 0;
-    padding: 32px;
-    background: var(--bg-alt);
-    border-radius: var(--radius);
-}
-
-.block {
     position: relative;
+    width: 100%;
+    max-width: 65ch;
+    height: 288px;
+    margin: 32px 0;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 8px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, #d4f1ec 0%, var(--mint-300) 100%);
 
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .wave {
+        animation: wave 8s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    .wave-1 {
+        opacity: 0.7;
+        animation-delay: 0s;
+    }
+
+    .wave-2 {
+        opacity: 0.5;
+        animation-delay: -2s;
+    }
+
+    .wave-3 {
+        opacity: 0.3;
+        animation-delay: -4s;
     }
 }
 
-.navy {
-    background: var(--brand-700);
-}
-.navy-deep {
-    background: var(--brand-800);
-}
-.black {
-    background: var(--neutral-900);
-}
-.slate {
-    background: var(--neutral-600);
-}
-
-// Span variations for interesting layout
-.span-2 {
-    grid-column: span 2;
-}
-.span-3 {
-    grid-column: span 3;
-}
-.tall {
-    grid-row: span 2;
-}
-
-// Add diagonal accent lines
-.block::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 120%;
-    background: rgba(255, 255, 255, 0.1);
-    top: -10%;
-    right: 30%;
-    transform: rotate(25deg);
+@keyframes wave {
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-25px) translateY(-10px);
+    }
 }
 
 // Sponsors & Contributors Section
