@@ -108,37 +108,65 @@
     box-shadow: var(--shadow);
 }
 
-// Decorative linear motif
+// Hero graphic motif
 .motif-inline {
-    display: flex;
-    gap: 8px;
-    max-width: 36rem;
-    margin: 24px 0;
-    height: 6px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 60px);
+    gap: 12px;
+    max-width: 48rem;
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
 }
 
-.bar {
-    flex: 1;
-    height: 100%;
-    background: var(--color-primary);
-    transition: all 0.3s ease;
+.block {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
 
     &:hover {
-        transform: scaleY(1.5);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 }
 
 .navy {
-    background: var(--brand-700) !important;
+    background: var(--brand-700);
 }
 .navy-deep {
-    background: var(--brand-800) !important;
+    background: var(--brand-800);
 }
 .black {
-    background: var(--neutral-900) !important;
+    background: var(--neutral-900);
 }
 .slate {
-    background: var(--neutral-600) !important;
+    background: var(--neutral-600);
+}
+
+// Span variations for interesting layout
+.span-2 {
+    grid-column: span 2;
+}
+.span-3 {
+    grid-column: span 3;
+}
+.tall {
+    grid-row: span 2;
+}
+
+// Add diagonal accent lines
+.block::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.1);
+    top: -10%;
+    right: 30%;
+    transform: rotate(25deg);
 }
 
 // Sponsors & Contributors Section

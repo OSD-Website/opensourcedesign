@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Preview - Open Source Design</title>
+        <style>
+            :root {
+                --brand-700: #1e2a47;
+                --brand-800: #111827;
+                --brand-300: #7ea1cc;
+                --mint-500: #5ab5a6;
+                --mint-300: #a8e0d7;
+                --mint-700: #4b9b8e;
+                --neutral-50: #fdfaf7;
+                --neutral-200: #f0eae3;
+                --neutral-600: #5a5450;
+                --neutral-900: #322d28;
+                --color-primary: var(--brand-700);
+                --color-primary-strong: var(--brand-800);
+                --color-primary-weak: var(--brand-300);
+                --text: var(--neutral-900);
+                --text-muted: var(--neutral-600);
+                --bg: #ffffff;
+                --bg-alt: var(--neutral-50);
+                --border: var(--neutral-200);
+                --focus: #ffb703;
+                --radius: 16px;
+                --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+                --gutter: 24px;
+            }
+
+            body {
+                font-family: Inter, system-ui, sans-serif;
+                color: var(--text);
+                background: var(--bg);
+                line-height: 1.55;
+                margin: 0;
+            }
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: var(--color-primary);
+                margin-bottom: 8px;
+            }
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 0;
+                margin-bottom: 12px;
+                font-weight: 700;
+            }
+            section {
+                margin-bottom: 40px;
+            }
+            section:first-of-type {
+                margin-bottom: 24px;
+            }
+            .subhead {
+                color: var(--text-muted);
+                margin-top: 4px;
+                margin-bottom: 12px;
+                max-width: 65ch;
+            }
+
+            header,
+            footer {
+                border-bottom: 1px solid var(--border);
+                background: var(--bg);
+            }
+            nav {
+                max-width: 72rem;
+                margin: 0 auto;
+                padding: 16px var(--gutter);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav a {
+                margin-left: 16px;
+                color: var(--color-primary);
+                text-decoration: none;
+                font-weight: 600;
+            }
+            nav a:hover {
+                color: var(--color-primary-strong);
+            }
+
+            main {
+                max-width: 72rem;
+                margin: 0 auto;
+                padding: 16px var(--gutter) 32px;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 24px;
+                align-items: start;
+            }
+            .main-content {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            aside {
+                grid-column: 2;
+                grid-row: 1;
+                position: sticky;
+                top: 16px;
+                align-self: start;
+                max-height: calc(100vh - 32px);
+                overflow: auto;
+                padding-right: 4px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .rhc {
+                background: #ffffff;
+                color: var(--text);
+                border-radius: 28px;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                border: 3px solid var(--mint-700);
+            }
+            .rhc .kicker {
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-size: 12px;
+                font-weight: 700;
+                opacity: 0.85;
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                background: var(--bg-alt);
+                padding: 20px var(--gutter);
+            }
+            footer a {
+                margin-right: 12px;
+                color: var(--text-muted);
+                text-decoration: none;
+            }
+            footer a:hover {
+                color: var(--color-primary);
+            }
+
+            /* NEW HERO GRAPHIC MOTIF */
+            .motif-inline {
+                display: grid;
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: repeat(4, 60px);
+                gap: 12px;
+                max-width: 48rem;
+                margin: 32px 0;
+                padding: 32px;
+                background: var(--bg-alt);
+                border-radius: var(--radius);
+            }
+
+            .block {
+                position: relative;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 8px;
+            }
+
+            .block:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            }
+
+            .navy {
+                background: var(--brand-700);
+            }
+            .navy-deep {
+                background: var(--brand-800);
+            }
+            .black {
+                background: var(--neutral-900);
+            }
+            .slate {
+                background: var(--neutral-600);
+            }
+
+            .span-2 {
+                grid-column: span 2;
+            }
+            .span-3 {
+                grid-column: span 3;
+            }
+            .tall {
+                grid-row: span 2;
+            }
+
+            .block::after {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 120%;
+                background: rgba(255, 255, 255, 0.1);
+                top: -10%;
+                right: 30%;
+                transform: rotate(25deg);
+            }
+
+            @media (max-width: 900px) {
+                main {
+                    grid-template-columns: 1fr;
+                }
+                aside {
+                    position: static;
+                    max-height: none;
+                    overflow: visible;
+                    padding-right: 0;
+                }
+                .motif-inline {
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: repeat(6, 50px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div>
+                    <strong
+                        ><a
+                            href="/"
+                            style="color: var(--text); text-decoration: none"
+                            >Open Source Design</a
+                        ></strong
+                    >
+                </div>
+                <div>
+                    <a href="#learning">Learn</a>
+                    <a href="#participating">Participate</a>
+                    <a href="#forum">Forum</a>
+                    <a href="#jobs">Job Board</a>
+                    <a href="#about">About</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="main-content">
+                <section>
+                    <h1>Where Design Meets Open Source</h1>
+                    <p class="subhead">
+                        Discover how design thrives in open source. Share your
+                        expertise and participate in shaping the community.
+                    </p>
+
+                    <!-- NEW HERO GRAPHIC MOTIF -->
+                    <div class="motif-inline">
+                        <div class="block navy-deep span-3 tall"></div>
+                        <div class="block black"></div>
+                        <div class="block slate span-2"></div>
+                        <div class="block navy span-2"></div>
+                        <div class="block navy tall"></div>
+                        <div class="block slate"></div>
+                        <div class="block black span-2"></div>
+                        <div class="block navy-deep span-2"></div>
+                        <div class="block navy"></div>
+                        <div class="block black tall"></div>
+                        <div class="block slate span-2"></div>
+                        <div class="block navy-deep"></div>
+                        <div class="block navy span-3"></div>
+                        <div class="block slate"></div>
+                        <div class="block black span-2 tall"></div>
+                        <div class="block navy-deep"></div>
+                        <div class="block slate span-2"></div>
+                    </div>
+                </section>
+
+                <section id="learning" style="margin-top: 72px">
+                    <h2>Learning About Open Source Design</h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        Understanding how design works in open source
+                        communities starts with learning from those already
+                        doing it. We gather talks, guides, and real case studies
+                        from designers working in the open source space.
+                    </p>
+                    <p
+                        style="
+                            color: var(--text);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        Whether you're new to open source or a seasoned
+                        contributor, you'll find practical resources here: talks
+                        from major conferences like FOSDEM, community guides on
+                        contribution pathways, and patterns that have worked for
+                        real projects. All curated with an eye toward what
+                        actually applies to your work.
+                    </p>
+                    <p
+                        style="
+                            color: var(--text);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        The goal is simple: share what works. No theory divorced
+                        from practice, no gatekeeping. Just signal—the good
+                        stuff worth your time.
+                    </p>
+                </section>
+
+                <section id="participating">
+                    <h2>Participating in Open Source Design</h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        There are many ways to contribute to open source as a
+                        designer. Whether you're looking to sponsor your time to
+                        a specific project, help design a feature, review
+                        information architecture, or just collaborate async with
+                        a global team.
+                    </p>
+                    <p
+                        style="
+                            color: var(--text);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        The barrier to entry is often unclear. We're working to
+                        change that. By publishing design briefs, hosting
+                        collaboration calls, and sharing job postings for
+                        designers in open source, we aim to make the path to
+                        contribution clearer.
+                    </p>
+                </section>
+
+                <section id="forum">
+                    <h2>Join Our Forum</h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        Connect with designers across the open source community.
+                        Share ideas, ask questions, and collaborate on design
+                        challenges with peers who understand the unique
+                        landscape of designing in the open source space.
+                    </p>
+                    <a
+                        href="#"
+                        style="
+                            color: var(--color-primary);
+                            text-decoration: underline;
+                            font-weight: 700;
+                            font-size: 14px;
+                        "
+                        >Visit Forum →</a
+                    >
+                </section>
+
+                <section id="jobs">
+                    <h2>Job Board</h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        Discover opportunities to contribute your design skills
+                        to open source projects. We curate design positions,
+                        freelance opportunities, and volunteer roles from across
+                        the open source ecosystem—all in one place.
+                    </p>
+                    <a
+                        href="#"
+                        style="
+                            color: var(--color-primary);
+                            text-decoration: underline;
+                            font-weight: 700;
+                            font-size: 14px;
+                        "
+                        >Browse Job Board →</a
+                    >
+                </section>
+
+                <section id="social">
+                    <h2>Follow Us on Mastodon</h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            max-width: 65ch;
+                            margin: 0 0 20px 0;
+                        "
+                    >
+                        Stay connected with the latest updates, discussions, and
+                        announcements from the Open Source Design community on
+                        Mastodon. Join our growing network of designers and open
+                        source enthusiasts.
+                    </p>
+                    <a
+                        href="#"
+                        style="
+                            color: var(--color-primary);
+                            text-decoration: underline;
+                            font-weight: 700;
+                            font-size: 14px;
+                        "
+                        >Follow on Mastodon →</a
+                    >
+                </section>
+            </div>
+
+            <aside>
+                <div class="rhc" style="margin-top: 48px">
+                    <div class="kicker">Resources</div>
+                    <p
+                        style="
+                            margin: 12px 0 16px 0;
+                            font-size: 14px;
+                            opacity: 0.9;
+                        "
+                    >
+                        Talks, guides, and real projects from the community.
+                        Learn how designers work in open source.
+                    </p>
+
+                    <div
+                        style="
+                            background: var(--bg-alt);
+                            border-radius: 12px;
+                            padding: 16px;
+                            margin-bottom: 20px;
+                            border: 1px solid var(--border);
+                        "
+                    >
+                        <div style="margin-bottom: 10px">
+                            <h4
+                                style="
+                                    margin: 0;
+                                    font-size: 18px;
+                                    font-weight: 800;
+                                "
+                            >
+                                FOSDEM Talk Catalog
+                            </h4>
+                        </div>
+                        <p
+                            style="
+                                margin: 0 0 12px 0;
+                                font-size: 13px;
+                                opacity: 0.9;
+                            "
+                        >
+                            Browse our curated collection of talks on design &
+                            UX in open source.
+                        </p>
+                        <a
+                            href="#"
+                            style="
+                                color: var(--color-primary);
+                                text-decoration: underline;
+                                font-weight: 700;
+                                font-size: 14px;
+                            "
+                            >Browse Catalog →</a
+                        >
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <div style="margin-bottom: 8px">
+                            <a
+                                href="#"
+                                style="
+                                    color: var(--text);
+                                    text-decoration: none;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 1.3;
+                                    display: block;
+                                "
+                                >Designing Contribution Pathways</a
+                            >
+                            <div
+                                style="
+                                    font-size: 12px;
+                                    opacity: 0.85;
+                                    margin-top: 4px;
+                                "
+                            >
+                                Guide
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 8px">
+                            <a
+                                href="#"
+                                style="
+                                    color: var(--text);
+                                    text-decoration: none;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 1.3;
+                                    display: block;
+                                "
+                                >How to Run Async Design Critiques</a
+                            >
+                            <div
+                                style="
+                                    font-size: 12px;
+                                    opacity: 0.85;
+                                    margin-top: 4px;
+                                "
+                            >
+                                Collaboration
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 8px">
+                            <a
+                                href="#"
+                                style="
+                                    color: var(--text);
+                                    text-decoration: none;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 1.3;
+                                    display: block;
+                                "
+                                >Issue Templates for Designers</a
+                            >
+                            <div
+                                style="
+                                    font-size: 12px;
+                                    opacity: 0.85;
+                                    margin-top: 4px;
+                                "
+                            >
+                                Pattern
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 0">
+                            <a
+                                href="#"
+                                style="
+                                    color: var(--text);
+                                    text-decoration: none;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 1.3;
+                                    display: block;
+                                "
+                                >Visual Regression Testing 101</a
+                            >
+                            <div
+                                style="
+                                    font-size: 12px;
+                                    opacity: 0.85;
+                                    margin-top: 4px;
+                                "
+                            >
+                                Talk
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <div
+                style="
+                    max-width: 72rem;
+                    margin: 0 auto;
+                    display: grid;
+                    gap: 24px;
+                "
+            >
+                <div style="display: flex; gap: 32px; flex-wrap: wrap">
+                    <div>
+                        <a href="#" style="font-weight: 700; color: var(--text)"
+                            >Archive</a
+                        >
+                        <p
+                            style="
+                                margin: 4px 0 0;
+                                font-size: 13px;
+                                color: var(--text-muted);
+                            "
+                        >
+                            Historical resources & past projects
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#" style="font-weight: 700; color: var(--text)"
+                            >Governance</a
+                        >
+                        <p
+                            style="
+                                margin: 4px 0 0;
+                                font-size: 13px;
+                                color: var(--text-muted);
+                            "
+                        >
+                            How we're organized
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#" style="font-weight: 700; color: var(--text)"
+                            >Contact</a
+                        >
+                        <p
+                            style="
+                                margin: 4px 0 0;
+                                font-size: 13px;
+                                color: var(--text-muted);
+                            "
+                        >
+                            Get in touch
+                        </p>
+                    </div>
+                </div>
+                <p style="margin: 0; font-size: 13px; color: var(--text-muted)">
+                    Open Source Design © 2025
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
