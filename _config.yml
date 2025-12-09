@@ -1,8 +1,8 @@
 # Site settings
 title: Open Source Design
 description: Where Design Meets Open Source
-url: "" # the base hostname & protocol for your site
-baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://osd-website.github.io" # the base hostname & protocol for your site
+baseurl: "/opensourcedesign" # the subpath of your site, e.g. /blog
 
 # Build settings
 markdown: kramdown
