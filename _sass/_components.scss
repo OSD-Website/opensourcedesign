@@ -108,52 +108,37 @@
     box-shadow: var(--shadow);
 }
 
-// Decorative geometric motif
+// Decorative linear motif
 .motif-inline {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    display: flex;
+    gap: 8px;
     max-width: 36rem;
-    margin: 12px 0 16px 0;
+    margin: 24px 0;
+    height: 6px;
 }
 
-.shape {
-    width: 100%;
-    padding-top: 100%;
-    position: relative;
-    overflow: hidden;
+.bar {
+    flex: 1;
+    height: 100%;
+    background: var(--color-primary);
+    transition: all 0.3s ease;
 
-    div {
-        position: absolute;
-        inset: 0;
-        background: var(--color-primary);
+    &:hover {
+        transform: scaleY(1.5);
     }
 }
 
-.mint {
-    background: var(--mint-500) !important;
+.navy {
+    background: var(--brand-700) !important;
 }
-.mint-light {
-    background: var(--mint-300) !important;
+.navy-deep {
+    background: var(--brand-800) !important;
 }
-.cobalt {
-    background: var(--color-primary) !important;
+.black {
+    background: var(--neutral-900) !important;
 }
-
-.circle div {
-    border-radius: 50%;
-}
-.half-left div {
-    border-radius: 50% 0 0 50%;
-}
-.half-right div {
-    border-radius: 0 50% 50% 0;
-}
-.half-top div {
-    border-radius: 50% 50% 0 0;
-}
-.half-bottom div {
-    border-radius: 0 0 50% 50%;
+.slate {
+    background: var(--neutral-600) !important;
 }
 
 // Sponsors & Contributors Section
