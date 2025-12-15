@@ -108,42 +108,21 @@
     box-shadow: var(--shadow);
 }
 
-// Hero wave graphic
+// Hero circular motif graphic
 .motif-inline {
     position: relative;
-    width: 100%;
-    max-width: 50ch;
-    height: 180px;
-    margin: 32px 0;
+    width: 300px;
+    max-width: 100%;
+    height: 300px;
+    margin: 24px 0;
     overflow: hidden;
     border-radius: var(--radius);
-    background: linear-gradient(180deg, #d4f1ec 0%, var(--mint-300) 100%);
+    background: #ffffff;
 
     svg {
-        position: absolute;
         width: 100%;
         height: 100%;
-    }
-
-    .soundwave {
-        animation: soundwave 4s ease-in-out infinite;
-        transform-origin: center;
-    }
-
-    .soundwave-1 {
-        animation-delay: 0s;
-    }
-
-    .soundwave-2 {
-        animation-delay: -1s;
-    }
-
-    .soundwave-3 {
-        animation-delay: -2s;
-    }
-
-    .soundwave-4 {
-        animation-delay: -3s;
+        display: block;
     }
 }
 
