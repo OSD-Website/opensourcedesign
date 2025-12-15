@@ -1,61 +1,417 @@
 <div class="motif-inline">
-    <!-- Circular mosaic pattern -->
+    <!-- Circular mosaic pattern with overlapping semi-circles -->
     <svg
         viewBox="0 0 400 400"
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
     >
-        <defs>
-            <!-- Quarter circle tile with concentric rings -->
-            <g id="tile">
-                <!-- Outermost arc - navy -->
-                <path
-                    d="M 0,0 A 100,100 0 0,1 100,100 L 80,80 A 80,80 0 0,0 20,20 Z"
-                    fill="#1e2a47"
-                />
-                <!-- Second arc - mint -->
-                <path
-                    d="M 20,20 A 80,80 0 0,1 80,80 L 65,65 A 65,65 0 0,0 35,35 Z"
-                    fill="#5ab5a6"
-                />
-                <!-- Third arc - light mint -->
-                <path
-                    d="M 35,35 A 65,65 0 0,1 65,65 L 52,52 A 52,52 0 0,0 48,48 Z"
-                    fill="#a8e0d7"
-                />
-                <!-- Inner arc - white/cream -->
-                <path
-                    d="M 48,48 A 52,52 0 0,1 52,52 L 40,40 A 40,40 0 0,0 60,60 Z"
-                    fill="#ffffff"
-                />
-                <!-- Center circle - navy -->
-                <circle cx="50" cy="50" r="15" fill="#1e2a47" />
-            </g>
-        </defs>
+        <!-- Background -->
+        <rect width="400" height="400" fill="#1e2a47" />
 
-        <!-- 4x4 Grid with rotations for variety -->
-        <!-- Row 1 -->
-        <use href="#tile" x="0" y="0" />
-        <use href="#tile" x="100" y="0" transform="rotate(90 150 50)" />
-        <use href="#tile" x="200" y="0" transform="rotate(180 250 50)" />
-        <use href="#tile" x="300" y="0" transform="rotate(270 350 50)" />
+        <!-- Grid is 4x4, each cell 100x100, centers at 50,50 150,50 250,50 350,50 etc -->
 
-        <!-- Row 2 -->
-        <use href="#tile" x="0" y="100" transform="rotate(270 50 150)" />
-        <use href="#tile" x="100" y="100" transform="rotate(180 150 150)" />
-        <use href="#tile" x="200" y="100" transform="rotate(90 250 150)" />
-        <use href="#tile" x="300" y="100" />
+        <!-- Larger semi-circles (radius ~80) -->
+        <path
+            d="M 50,130 A 80,80 0 0,0 50,-30"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 150,130 A 80,80 0 0,1 150,-30"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 250,130 A 80,80 0 0,0 250,-30"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 350,130 A 80,80 0 0,1 350,-30"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
 
-        <!-- Row 3 -->
-        <use href="#tile" x="0" y="200" transform="rotate(180 50 250)" />
-        <use href="#tile" x="100" y="200" />
-        <use href="#tile" x="200" y="200" transform="rotate(270 250 250)" />
-        <use href="#tile" x="300" y="200" transform="rotate(90 350 250)" />
+        <path
+            d="M 50,230 A 80,80 0 0,1 50,70"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="25"
+        />
+        <path
+            d="M 150,230 A 80,80 0 0,0 150,70"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 250,230 A 80,80 0 0,1 250,70"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 350,230 A 80,80 0 0,0 350,70"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
 
-        <!-- Row 4 -->
-        <use href="#tile" x="0" y="300" transform="rotate(90 50 350)" />
-        <use href="#tile" x="100" y="300" transform="rotate(270 150 350)" />
-        <use href="#tile" x="200" y="300" />
-        <use href="#tile" x="300" y="300" transform="rotate(180 350 350)" />
+        <path
+            d="M 50,330 A 80,80 0 0,0 50,170"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 150,330 A 80,80 0 0,1 150,170"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 250,330 A 80,80 0 0,0 250,170"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 350,330 A 80,80 0 0,1 350,170"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+
+        <path
+            d="M 50,430 A 80,80 0 0,1 50,270"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="25"
+        />
+        <path
+            d="M 150,430 A 80,80 0 0,0 150,270"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 250,430 A 80,80 0 0,1 250,270"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 350,430 A 80,80 0 0,0 350,270"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+
+        <!-- Horizontal semi-circles -->
+        <path
+            d="M 130,50 A 80,80 0 0,1 -30,50"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 130,150 A 80,80 0 0,0 -30,150"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 130,250 A 80,80 0 0,1 -30,250"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 130,350 A 80,80 0 0,0 -30,350"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+
+        <path
+            d="M 230,50 A 80,80 0 0,0 70,50"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 230,150 A 80,80 0 0,1 70,150"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="25"
+        />
+        <path
+            d="M 230,250 A 80,80 0 0,0 70,250"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 230,350 A 80,80 0 0,1 70,350"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+
+        <path
+            d="M 330,50 A 80,80 0 0,1 170,50"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 330,150 A 80,80 0 0,0 170,150"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 330,250 A 80,80 0 0,1 170,250"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+        <path
+            d="M 330,350 A 80,80 0 0,0 170,350"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+
+        <path
+            d="M 430,50 A 80,80 0 0,0 270,50"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 430,150 A 80,80 0 0,1 270,150"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="25"
+        />
+        <path
+            d="M 430,250 A 80,80 0 0,0 270,250"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="25"
+        />
+        <path
+            d="M 430,350 A 80,80 0 0,1 270,350"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="25"
+        />
+
+        <!-- Inner layer - smaller radius -->
+        <path
+            d="M 50,105 A 55,55 0 0,0 50,-5"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 150,105 A 55,55 0 0,1 150,-5"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 250,105 A 55,55 0 0,0 250,-5"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 350,105 A 55,55 0 0,1 350,-5"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 50,205 A 55,55 0 0,1 50,95"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 150,205 A 55,55 0 0,0 150,95"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 250,205 A 55,55 0 0,1 250,95"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 350,205 A 55,55 0 0,0 350,95"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 50,305 A 55,55 0 0,0 50,195"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 150,305 A 55,55 0 0,1 150,195"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 250,305 A 55,55 0 0,0 250,195"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 350,305 A 55,55 0 0,1 350,195"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 50,405 A 55,55 0 0,1 50,295"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 150,405 A 55,55 0 0,0 150,295"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 250,405 A 55,55 0 0,1 250,295"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 350,405 A 55,55 0 0,0 350,295"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+
+        <!-- Horizontal inner -->
+        <path
+            d="M 105,50 A 55,55 0 0,1 -5,50"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 105,150 A 55,55 0 0,0 -5,150"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 105,250 A 55,55 0 0,1 -5,250"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 105,350 A 55,55 0 0,0 -5,350"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 205,50 A 55,55 0 0,0 95,50"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 205,150 A 55,55 0 0,1 95,150"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 205,250 A 55,55 0 0,0 95,250"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 205,350 A 55,55 0 0,1 95,350"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 305,50 A 55,55 0 0,1 195,50"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 305,150 A 55,55 0 0,0 195,150"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 305,250 A 55,55 0 0,1 195,250"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 305,350 A 55,55 0 0,0 195,350"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+
+        <path
+            d="M 405,50 A 55,55 0 0,0 295,50"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 405,150 A 55,55 0 0,1 295,150"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
+        <path
+            d="M 405,250 A 55,55 0 0,0 295,250"
+            fill="none"
+            stroke="#a8e0d7"
+            stroke-width="18"
+        />
+        <path
+            d="M 405,350 A 55,55 0 0,1 295,350"
+            fill="none"
+            stroke="#5ab5a6"
+            stroke-width="18"
+        />
     </svg>
 </div>
