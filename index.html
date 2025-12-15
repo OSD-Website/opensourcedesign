@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Oh<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -89,11 +89,13 @@
 
     /* Decorative geometric motif */
     .motif-inline {
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px; /* tighter spacing */
       max-width: 36rem;
       margin: 12px 0 16px 0;
+    }
+    .motif-inline svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .shape {
       width:100%;
@@ -148,16 +150,7 @@
     <section>
       <h1>Where Design Meets Open Source</h1>
       <p class="subhead">Discover how design thrives in open source.Share your expertise and participate in shaping the community. </p>
-      <div class="motif-inline">
-        <div class="shape half-top"><div class="cobalt"></div></div>
-        <div class="shape half-bottom"><div class="mint"></div></div>
-        <div class="shape half-left"><div class="mint-light"></div></div>
-        <div class="shape circle"><div class="cobalt"></div></div>
-        <div class="shape half-right"><div class="mint"></div></div>
-        <div class="shape circle"><div class="mint"></div></div>
-        <div class="shape half-top"><div class="cobalt"></div></div>
-        <div class="shape half-bottom"><div class="mint-light"></div></div>
-      </div>
+      {% include hero-motif.html %}
 
     <section id="learning" style="margin-top: 72px;">
       <h2>Learning About Open Source Design</h2>

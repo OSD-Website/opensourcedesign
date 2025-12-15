@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mosaic Motif Preview</title>
+        <style>
+            :root {
+                --brand-700: #1e2a47;
+                --mint-500: #5ab5a6;
+                --mint-300: #a8e0d7;
+                --neutral-50: #fdfaf7;
+                --neutral-200: #f0eae3;
+                --neutral-900: #322d28;
+            }
+
+            body {
+                font-family: Inter, system-ui, sans-serif;
+                background: #ffffff;
+                margin: 0;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: var(--brand-700);
+                margin: 0;
+            }
+
+            .preview-container {
+                max-width: 72rem;
+                width: 100%;
+            }
+
+            .motif-inline {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 4px;
+                max-width: 36rem;
+                margin: 20px 0;
+                border: 2px dashed #e0e0e0;
+                padding: 20px;
+                border-radius: 8px;
+                background: var(--neutral-50);
+            }
+
+            .motif-inline svg {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .info {
+                background: #f5f5f5;
+                padding: 20px;
+                border-radius: 8px;
+                max-width: 600px;
+            }
+
+            .info h2 {
+                margin-top: 0;
+                color: var(--brand-700);
+            }
+
+            .info code {
+                background: white;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+            pre {
+                background: white;
+                padding: 12px;
+                border-radius: 4px;
+                overflow-x: auto;
+                border: 1px solid #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="preview-container">
+            <h1>Mosaic Motif Preview</h1>
+
+            <div class="motif-inline">
+                <svg
+                    class="motif-mosaic"
+                    viewBox="0 0 800 200"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                >
+                    <rect
+                        x="20"
+                        y="40"
+                        width="80"
+                        height="80"
+                        fill="#1e2a47"
+                        rx="8"
+                    />
+                    <rect
+                        x="480"
+                        y="80"
+                        width="80"
+                        height="80"
+                        fill="#1e2a47"
+                        rx="8"
+                    />
+
+                    <rect
+                        x="120"
+                        y="20"
+                        width="100"
+                        height="60"
+                        fill="#5ab5a6"
+                        rx="6"
+                    />
+                    <rect
+                        x="340"
+                        y="120"
+                        width="120"
+                        height="60"
+                        fill="#5ab5a6"
+                        rx="6"
+                    />
+                    <rect
+                        x="660"
+                        y="40"
+                        width="100"
+                        height="60"
+                        fill="#5ab5a6"
+                        rx="6"
+                    />
+
+                    <circle cx="390" cy="60" r="45" fill="#a8e0d7" />
+                    <circle cx="620" cy="140" r="45" fill="#a8e0d7" />
+
+                    <rect
+                        x="240"
+                        y="60"
+                        width="50"
+                        height="50"
+                        fill="#1e2a47"
+                        rx="4"
+                    />
+                    <rect
+                        x="580"
+                        y="30"
+                        width="50"
+                        height="50"
+                        fill="#1e2a47"
+                        rx="4"
+                    />
+                    <rect
+                        x="140"
+                        y="140"
+                        width="50"
+                        height="50"
+                        fill="#a8e0d7"
+                        rx="4"
+                    />
+
+                    <rect
+                        x="310"
+                        y="20"
+                        width="20"
+                        height="90"
+                        fill="#a8e0d7"
+                        rx="3"
+                    />
+                    <rect
+                        x="570"
+                        y="110"
+                        width="20"
+                        height="80"
+                        fill="#1e2a47"
+                        rx="3"
+                    />
+
+                    <circle cx="260" cy="150" r="25" fill="#5ab5a6" />
+                    <circle cx="730" cy="130" r="25" fill="#1e2a47" />
+                    <circle cx="50" cy="160" r="25" fill="#a8e0d7" />
+
+                    <rect
+                        x="210"
+                        y="140"
+                        width="100"
+                        height="30"
+                        fill="#1e2a47"
+                        rx="4"
+                    />
+                    <rect
+                        x="470"
+                        y="40"
+                        width="80"
+                        height="25"
+                        fill="#a8e0d7"
+                        rx="4"
+                    />
+
+                    <rect
+                        x="110"
+                        y="90"
+                        width="35"
+                        height="35"
+                        fill="#5ab5a6"
+                        rx="3"
+                    />
+                    <rect
+                        x="380"
+                        y="30"
+                        width="30"
+                        height="30"
+                        fill="#1e2a47"
+                        rx="3"
+                    />
+                    <rect
+                        x="700"
+                        y="120"
+                        width="40"
+                        height="40"
+                        fill="#1e2a47"
+                        rx="3"
+                    />
+                </svg>
+            </div>
+
+            <div class="info">
+                <h2>✓ Successfully Included!</h2>
+                <p>Your index.html now includes the mosaic motif using:</p>
+                <pre>{% include hero-motif.html %}</pre>
+
+                <p style="margin-top: 20px"><strong>Colors used:</strong></p>
+                <ul>
+                    <li>Navy: <code>#1e2a47</code></li>
+                    <li>Mint: <code>#5ab5a6</code></li>
+                    <li>Light Mint: <code>#a8e0d7</code></li>
+                </ul>
+
+                <p style="margin-top: 20px">
+                    <strong>To view on your site:</strong>
+                </p>
+                <p>
+                    Run Jekyll locally with <code>jekyll serve</code> and visit
+                    <code>http://localhost:4000</code>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
