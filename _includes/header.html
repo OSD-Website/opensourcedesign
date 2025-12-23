@@ -1,20 +1,26 @@
-<header>
-    <nav>
-        <div>
-            <strong
-                ><a
-                    href="{{ '/' | relative_url }}"
-                    style="color: var(--text); text-decoration: none"
-                    >{{ site.title | default: "Open Source Design" }}</a
-                ></strong
+<header class="header">
+    <nav class="header__nav">
+        <a href="{{ '/' | relative_url }}" class="header__logo"
+            >{{ site.title | default: "Open Source Design" }}</a
+        >
+        <div class="header__links">
+            <a href="{{ '/' | relative_url }}#learning" class="header__link"
+                >Learn</a
             >
-        </div>
-        <div>
-            <a href="{{ '/' | relative_url }}#learning">Learn</a>
-            <a href="{{ '/' | relative_url }}#participating">Participate</a>
-            <a href="{{ '/' | relative_url }}#forum">Forum</a>
-            <a href="{{ '/' | relative_url }}#jobs">Job Board</a>
-            <a href="{{ '/about' | relative_url }}">About</a>
+            <a
+                href="{{ '/' | relative_url }}#participating"
+                class="header__link"
+                >Participate</a
+            >
+            <a href="{{ '/' | relative_url }}#forum" class="header__link"
+                >Forum</a
+            >
+            <a href="{{ '/' | relative_url }}#jobs" class="header__link"
+                >Job Board</a
+            >
+            <a href="{{ '/about' | relative_url }}" class="header__link"
+                >About</a
+            >
         </div>
     </nav>
 </header>

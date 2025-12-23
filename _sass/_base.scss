@@ -1,37 +1,54 @@
 // Base Styles
 body {
-  font-family: Inter, system-ui, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.55;
-  margin: 0;
+    font-family: "Work Sans", system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+    margin: 0;
+}
+
+// Focus states for accessibility
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+// Remove default focus outline (replaced by focus-visible above)
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 8px;
 }
 
 h2 {
-  font-size: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 section {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 
-  &:first-of-type {
-    margin-bottom: 24px;
-  }
+    &:first-of-type {
+        margin-bottom: 24px;
+    }
 }
 
 .subhead {
-  color: var(--text-muted);
-  margin-top: 4px;
-  margin-bottom: 12px;
-  max-width: 65ch;
+    color: var(--text-muted);
+    margin-top: 4px;
+    margin-bottom: 12px;
+    max-width: 65ch;
 }
