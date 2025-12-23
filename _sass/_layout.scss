@@ -98,10 +98,27 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .main__content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
     .main__sidebar {
+        grid-column: 1;
+        grid-row: 2;
         position: static;
         max-height: none;
         overflow: visible;
         padding-right: 0;
+    }
+
+    // Smaller hero motif on mobile
+    .hero-motif {
+        max-width: 100%;
+    }
+
+    // Reduce heading size on mobile
+    h1 {
+        font-size: 1.75rem;
     }
 }
